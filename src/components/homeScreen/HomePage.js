@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BookShelf from "./BookShelf";
+import FloatingButton from "./FloatingButton";
 
 class HomePAge extends Component {
   render() {
@@ -15,11 +16,7 @@ class HomePAge extends Component {
             <BookShelf title="Read" />
           </div>
         </div>
-        <div className="open-search">
-          <button onClick={() => this.setState({ showSearchPage: true })}>
-            Add a book
-          </button>
-        </div>
+        <FloatingButton />
       </div>
     );
   }
