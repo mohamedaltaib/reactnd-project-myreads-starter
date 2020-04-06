@@ -13,21 +13,21 @@ class HomePAge extends Component {
           <div>
             <BookShelf
               title="Currently Reading"
-              books={this.props.AllBooks.filter(
+              books={this.props.books.filter(
                 book => book.shelf === "currentlyReading"
               )}
               updateShelf={this.props.updateShelf}
             />
             <BookShelf
               title="Want to Read"
-              books={this.props.AllBooks.filter(
+              books={this.props.books.filter(
                 book => book.shelf === "wantToRead"
               )}
               updateShelf={this.props.updateShelf}
             />
             <BookShelf
               title="Read"
-              books={this.props.AllBooks.filter(book => book.shelf === "read")}
+              books={this.props.books.filter(book => book.shelf === "read")}
               updateShelf={this.props.updateShelf}
             />
           </div>
