@@ -7,7 +7,7 @@ import HomePage from "./components/homeScreen/HomePage";
 
 class BooksApp extends React.Component {
   state = {
-    AllBooks: [],
+    ShelfBooks: [],
     searchResults: []
   };
 
@@ -19,7 +19,7 @@ class BooksApp extends React.Component {
   componentDidMount() {
     BooksAPI.getAll().then(books =>
       this.setState(() => ({
-        AllBooks: books
+        ShelfBooks: books
       }))
     );
   }
@@ -41,7 +41,7 @@ class BooksApp extends React.Component {
 
         const resultBooks = result.map(item => {
           // update new search result with stored bookshelt info for each book.
-          this.state.AllBooks.forEach(book => {
+          this.state.ShelfBooks.forEach(book => {
             if (book.id === item.id) item.shelf = book.shelf;
           });
           return item;
@@ -67,7 +67,7 @@ class BooksApp extends React.Component {
   syncSearch = () => {
     BooksAPI.getAll().then(books =>
       this.setState(() => ({
-        AllBooks: books
+        ShelfBooks: books
       }))
     );
     this.setState({
@@ -86,9 +86,9 @@ class BooksApp extends React.Component {
   updateShelf = (book, shelf) => {
     //update server shelf name status
     BooksAPI.update(book, shelf);
-    //update current AllBooks state info
+    //update current ShelfBooks state info
     this.setState({
-      AllBooks: this.state.AllBooks.map(b =>
+      ShelfBooks: this.state.ShelfBooks.map(b =>
         b.id === book.id ? { ...b, shelf: shelf } : b
       ),
       //update if hte is searchResults defined and the updated book existes in list
@@ -108,7 +108,7 @@ class BooksApp extends React.Component {
           path="/"
           render={() => (
             <HomePage
-              books={this.state.AllBooks}
+              books={this.state.ShelfBooks}
               updateShelf={this.updateShelf}
             />
           )}
