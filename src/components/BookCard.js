@@ -12,13 +12,17 @@ class BookCard extends Component {
               style={{
                 width: 128,
                 height: 193,
-                backgroundImage: this.props.imgURL
+                backgroundImage: `url(${this.props.book.imageLinks &&
+                  this.props.book.imageLinks.thumbnail})`
               }}
             ></div>
-            <ShelfChanger />
+            <ShelfChanger
+              book={this.props.book}
+              updateShelf={this.props.updateShelf}
+            />
           </div>
-          <div className="book-title">{this.props.bookTitle}</div>
-          <div className="book-authors">{this.props.bookSubTitle}</div>
+          <div className="book-title">{this.props.book.title}</div>
+          <div className="book-authors">{this.props.book.subtitle}</div>
         </div>
       </li>
     );

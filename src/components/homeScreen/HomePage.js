@@ -11,9 +11,25 @@ class HomePAge extends Component {
         </div>
         <div className="list-books-content">
           <div>
-            <BookShelf title="Currently Reading" />
-            <BookShelf title="Want to Read" />
-            <BookShelf title="Read" />
+            <BookShelf
+              title="Currently Reading"
+              books={this.props.AllBooks.filter(
+                book => book.shelf === "currentlyReading"
+              )}
+              updateShelf={this.props.updateShelf}
+            />
+            <BookShelf
+              title="Want to Read"
+              books={this.props.AllBooks.filter(
+                book => book.shelf === "wantToRead"
+              )}
+              updateShelf={this.props.updateShelf}
+            />
+            <BookShelf
+              title="Read"
+              books={this.props.AllBooks.filter(book => book.shelf === "read")}
+              updateShelf={this.props.updateShelf}
+            />
           </div>
         </div>
         <FloatingButton />

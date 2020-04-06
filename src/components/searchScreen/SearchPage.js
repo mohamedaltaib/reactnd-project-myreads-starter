@@ -6,8 +6,14 @@ class SearchPage extends Component {
   render() {
     return (
       <div>
-        <SearchBox />
-        <SearchResults />
+        <SearchBox
+          searchBooks={this.props.searchBooks}
+          syncSearch={this.props.syncSearch}
+        />
+        <SearchResults
+          books={this.props.books}
+          updateShelf={this.props.updateShelf}
+        />
       </div>
     );
   }

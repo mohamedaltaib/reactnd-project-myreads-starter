@@ -6,7 +6,13 @@ class SearchResults extends Component {
     return (
       <div className="search-books-results">
         <ol className="books-grid">
-          <BookCard imgURL="" bookTitle="" bookSubTitle="" />
+          {this.props.books.map(book => (
+            <BookCard
+              key={book.id}
+              book={book}
+              updateShelf={this.props.updateShelf}
+            />
+          ))}
         </ol>
       </div>
     );

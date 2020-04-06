@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const BackButton = () => {
+const BackButton = props => {
   return (
     <Link to="/">
-      <button className="close-search">Close</button>
+      <button onClick={props.syncSearch} className="close-search">
+        Close
+      </button>
     </Link>
   );
 };
