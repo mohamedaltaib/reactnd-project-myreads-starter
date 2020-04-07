@@ -4,12 +4,16 @@ import BookCard from "../BookCard";
 class BookShelf extends Component {
   render() {
     return (
-      <div key={this.props.id} className="bookshelf">
+      <div className="bookshelf">
         <h2 className="bookshelf-title">{this.props.title}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
             {this.props.books.map(book => (
-              <BookCard book={book} updateShelf={this.props.updateShelf} />
+              <BookCard
+                key={book.id}
+                book={book}
+                updateShelf={this.props.updateShelf}
+              />
             ))}
             {/* <BookCard
               id={this.props.id}
